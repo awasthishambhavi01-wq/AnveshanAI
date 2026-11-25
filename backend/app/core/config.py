@@ -28,6 +28,8 @@ class Settings(BaseSettings):
 
     # CORS
     frontend_origin: str = "http://localhost:5173"
+        # Uploads
+   
 
     # Paths (computed, not read from .env)
     @property
