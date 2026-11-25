@@ -8,15 +8,16 @@ from app.core.exceptions import LLMError
 logger = logging.getLogger(__name__)
 
 
-def generate(messages: list[dict], temperature: float = 0.1) -> str:
+def generate(messages: list[dict], temperature: float = 0.1, max_tokens: int = 300) -> str:
     """Call Ollama /api/chat (non-streaming) and return the reply text."""
     s = get_settings()
     payload = {
         "model": s.llm_model,
         "messages": messages,
         "stream": False,
-        "options": {"temperature": temperature},
+        "options": {"temperature": temperature, "num_predict": max_tokens},
     }
+    
 
     try:
         # Long read timeout: the first call after startup loads the model into memory

@@ -15,6 +15,18 @@ class Source(BaseModel):
     score: float
 
 
+
 class ChatResponse(BaseModel):
     answer: str
     sources: list[Source]
+    rewritten_question: str | None = None  # shows what retrieval actually searched for
+
+
+class MessageOut(BaseModel):
+    role: str
+    content: str
+    sources: list[Source] | None = None
+
+
+class SessionOut(BaseModel):
+    session_id: str
