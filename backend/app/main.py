@@ -10,6 +10,9 @@ from app.core.config import get_settings
 from app.core.logging import setup_logging
 from app.db import models  # noqa: F401 (registers tables on Base)
 from app.db.database import Base, engine
+from app.api.routes import documents, health, search
+from app.services.embedder import get_embedder
+from app.services.vector_store import get_vector_store
 
 
 settings = get_settings()
@@ -24,6 +27,8 @@ async def lifespan(app: FastAPI):
     settings.chroma_dir.mkdir(parents=True, exist_ok=True)
 
     Base.metadata.create_all(bind=engine)
+    get_embedder()       # load the model once at startup
+    get_vector_store()   # open Chroma once
 
     logger.info(
         "%s started. Data dir: %s",
@@ -53,3 +58,4 @@ app.add_middleware(
 
 app.include_router(health.router)
 app.include_router(documents.router)
+app.include_router(search.router)

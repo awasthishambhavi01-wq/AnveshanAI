@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, UploadFile
 from sqlalchemy.orm import Session
-
+from app.services.vector_store import get_vector_store
 from app.core.config import get_settings
 from app.db import crud
 from app.db.database import get_db
@@ -38,6 +38,7 @@ def delete_document(doc_id: str, db: Session = Depends(get_db)):
 
     pdf_path = get_settings().uploads_dir / f"{doc.id}.pdf"
     pdf_path.unlink(missing_ok=True)
+    get_vector_store().delete_by_doc(doc.id)    
     # TODO (next stage): also delete this document's vectors from Chroma
     crud.delete_document(db, doc)
     return {"deleted": True}

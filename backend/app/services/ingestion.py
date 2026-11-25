@@ -1,7 +1,8 @@
 import logging
 
 from sqlalchemy.orm import Session
-
+from app.services.embedder import get_embedder
+from app.services.vector_store import get_vector_store
 from app.core.config import get_settings
 from app.db import crud
 from app.db.models import Document
@@ -31,13 +32,17 @@ def ingest_pdf(db: Session, filename: str, data: bytes) -> tuple[Document, bool]
         if not chunks:
             raise ValueError("No extractable text (scanned PDF?)")
 
-        # TODO (next stage): embed chunks and store them in Chroma here
+        # Embed the text and store it in the vector store
+        embeddings = get_embedder().embed_documents([c["text"] for c in chunks])
+        get_vector_store().add_chunks(chunks, embeddings)
+
         doc = crud.update_document(
             db, doc, status="ready", pages=len(pages), num_chunks=len(chunks)
         )
         logger.info("Ingested %s: %d pages, %d chunks", filename, len(pages), len(chunks))
     except Exception as exc:
         logger.exception("Ingestion failed for %s", filename)
+        get_vector_store().delete_by_doc(doc.id)  # no half-indexed documents
         doc = crud.update_document(db, doc, status="failed", error=str(exc))
 
     return doc, False
