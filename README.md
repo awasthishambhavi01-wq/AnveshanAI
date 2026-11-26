@@ -430,27 +430,16 @@ Covered scenarios:
 - [ ] Swap in Azure OpenAI and a managed vector database through the existing interfaces
 - [ ] Authentication and per-user document libraries
 
----
 
-## 🤝 Contributing
-
-Issues and pull requests are welcome. For larger changes, please open an issue first to discuss what you would like to change. Please run `pytest` before submitting a PR.
-
----
 
 ## 👩‍💻 Author
 
 **Shambhavi Awasthi**
 B.Tech Computer Science and Engineering
 
-- GitHub: [@your-username](https://github.com/your-username)
-- LinkedIn: [your-profile](https://linkedin.com/in/your-profile)
+- GitHub: [@your-username](https://github.com/awasthishambhavi01-wq)
+- LinkedIn: [your-profile](www.linkedin.com/in/shambhavi-awasthi-5472782aa)
 
----
-
-## 📄 License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 <div align="center">
 
