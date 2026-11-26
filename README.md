@@ -437,8 +437,8 @@ Covered scenarios:
 **Shambhavi Awasthi**
 B.Tech Computer Science and Engineering
 
-- GitHub: [@your-username](https://github.com/awasthishambhavi01-wq)
-- LinkedIn: [your-profile](www.linkedin.com/in/shambhavi-awasthi-5472782aa)
+- GitHub: [Shambhavi Awasthi](https://github.com/awasthishambhavi01-wq)
+- LinkedIn: [Shambhavi Awasthi](www.linkedin.com/in/shambhavi-awasthi-5472782aa)
 
 
 <div align="center">
