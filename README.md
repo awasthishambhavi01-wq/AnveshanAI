@@ -2,7 +2,7 @@
 
 # 🔍 AnveshanAI
 
-### A local-first AI knowledge assistant: upload PDFs, search by meaning, and get answers with source citations.
+### A local-first RAG based AI knowledge assistant: upload PDFs, search by meaning, and get answers with source citations.
 
 *Anveshan (अन्वेषण) means "exploration" or "investigation" in Sanskrit.*
 
