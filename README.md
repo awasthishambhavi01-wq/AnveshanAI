@@ -438,8 +438,7 @@ Covered scenarios:
 B.Tech Computer Science and Engineering
 
 - GitHub: [Shambhavi Awasthi](https://github.com/awasthishambhavi01-wq)
-- LinkedIn: [Shambhavi Awasthi](www.linkedin.com/in/shambhavi-awasthi-5472782aa)
-
+  
 
 <div align="center">
 
